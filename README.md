@@ -4,7 +4,9 @@ This is marketing analytics task.
 
 Look for EDA and sample data [here](https://github.com/odaykhovskaya/test-application/blob/master/src/main/resources/jupyter-notebooks/EDA.ipynb).
 
-Solution for both tasks can be found [here](https://github.com/odaykhovskaya/test-application/tree/master/src/main/scala/solution). In each package (task1, task2) there are 2 files: 'DataFrameAPI' and 'SQL', so every task was solved in both ways.
+Solution for both tasks can be found [here](https://github.com/odaykhovskaya/test-application/tree/master/src/main/scala/solution). Every task was solved in both ways: with Spark DataFrame API and SparkSQL. In each package (task1, task2) there are 2 files: 'DataFrameAPI' and 'SQL' with solution.
+
+All solutions are tested [here](https://github.com/odaykhovskaya/test-application/tree/master/src/test/scala).
 
 How to run locally:
 
