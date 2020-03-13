@@ -75,7 +75,7 @@ class Task2Spec extends FlatSpec with BeforeAndAfter with BeforeAndAfterAll {
 
   }
 
-  "Result file" should "be written" in {
+  ignore should "be written" in {
     val resultCampaign = solution.task2.DataFrameAPI.getTopCampaigns()
 
     resultCampaign.write.format("com.crealytics.spark.excel")

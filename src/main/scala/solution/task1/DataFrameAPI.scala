@@ -3,7 +3,7 @@ package solution.task1
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types.DoubleType
+import org.apache.spark.sql.types.{DoubleType, TimestampType}
 import solution.Config
 
 object DataFrameAPI {
@@ -74,6 +74,12 @@ object DataFrameAPI {
     val step4 = step3
       .withColumn("campaignId", first($"campaignId", true).over(wSessionId))
       .withColumn("channelId", first($"channelId", true).over(wSessionId))
+      .withColumn("purchaseTime", $"purchaseTime".cast(TimestampType))
+      .withColumn("isConfirmed",
+          when($"isConfirmed"===lit("TRUE"), true)
+          .when($"isConfirmed"===lit("FALSE"), false)
+          .otherwise(null)
+      )
 
     step4
 

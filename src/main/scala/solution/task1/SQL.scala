@@ -76,10 +76,15 @@ object SQL {
 
     spark.sql(
       """
-        |SELECT purchaseId, purchaseTime, cast(billingCost as double) AS billingCost, isConfirmed, sessionId,
+        |SELECT
+        | purchaseId,
+        | cast(purchaseTime as timestamp) AS purchaseTime,
+        | cast(billingCost as double) AS billingCost,
+        | CASE WHEN isConfirmed == 'TRUE' THEN true ELSE CASE WHEN isConfirmed == 'FALSE' THEN false ELSE null END END AS isConfirmed,
+        | sessionId,
         | first(campaignId, true) OVER (PARTITION BY sessionId) AS campaignId,
         | first(channelId, true) OVER (PARTITION BY sessionId) AS channelId
-        | FROM clickstream_sessions_1
+        |FROM clickstream_sessions_1
         |""".stripMargin)
       .createOrReplaceTempView("clickstream_sessions_2")
 

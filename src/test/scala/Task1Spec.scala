@@ -52,7 +52,7 @@ class Task1Spec extends FlatSpec with BeforeAndAfter with BeforeAndAfterAll {
 
   }
 
-  "Result file" should "be written" in {
+  ignore should "be written" in {
     val result = solution.task1.DataFrameAPI.run()
 
     result.write.format("com.crealytics.spark.excel")
