@@ -12,13 +12,10 @@ Answers for sample data can be found [here](https://github.com/odaykhovskaya/tes
 
 How to run locally:
 
-* Make sure you have [Spark](https://spark.apache.org/downloads.html) installed and properly configured
+* Make sure you have [Spark](https://spark.apache.org/downloads.html) installed and properly configured environment with $SPARK_HOME variable
 * Configure environment variables:
     ```
   PATH_TO_DATA_PURCHASES="<path to .xlsx file with purchases data>"
   PATH_TO_DATA_CLICKSTREAM="<path to .xlsx file with clickstream data>"
     ```
-* In the root directory package run command
-    ```
-    sbt assembly
-    ```
+* In the root directory package run script ```run.sh```, which uses spark-submit to run all the solutions. In case of any problems with script permissions run ``` sudo chmod +x ./run.sh``` in project's root directory.
