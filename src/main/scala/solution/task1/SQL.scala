@@ -15,12 +15,12 @@ object SQL {
     spark.read.format("com.crealytics.spark.excel")
       .option("useHeader", "true")
       .load(Config.PATH_TO_DATA_CLICKSTREAM)
-      .createTempView("clickstream")
+      .createOrReplaceTempView("clickstream")
 
     spark.read.format("com.crealytics.spark.excel")
       .option("useHeader", "true")
       .load(Config.PATH_TO_DATA_PURCHASES)
-      .createTempView("purchases")
+      .createOrReplaceTempView("purchases")
 
     /*
     Step 1: formatting json in 'attributes column' and extracting purchaseId, campaignId and channelId. Formatting billingCost in purchases
@@ -76,7 +76,7 @@ object SQL {
 
     spark.sql(
       """
-        |SELECT purchaseId, purchaseTime, billingCost, isConfirmed, sessionId,
+        |SELECT purchaseId, purchaseTime, cast(billingCost as double) AS billingCost, isConfirmed, sessionId,
         | first(campaignId, true) OVER (PARTITION BY sessionId) AS campaignId,
         | first(channelId, true) OVER (PARTITION BY sessionId) AS channelId
         | FROM clickstream_sessions_1

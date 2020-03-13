@@ -3,15 +3,12 @@ package solution.task2
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, SparkSession}
-import solution.Config
 
 object DataFrameAPI {
 
   val spark = SparkSession.builder.getOrCreate()
 
   import spark.implicits._
-
-
 
   def getTopCampaigns(): DataFrame = {
 
