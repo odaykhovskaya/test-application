@@ -1,7 +1,8 @@
 # test-application
 
 This is marketing analytics task.
-Look for data description [here](https://github.com/odaykhovskaya/test-application/blob/master/src/main/resources/jupyter-notebooks/EDA.ipynb)
+
+Look for EDA and sample data [here](https://github.com/odaykhovskaya/test-application/blob/master/src/main/resources/jupyter-notebooks/EDA.ipynb)
 
 How to run locally:
 
