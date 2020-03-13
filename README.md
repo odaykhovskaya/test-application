@@ -13,7 +13,7 @@ Answers for sample data can be found [here](https://github.com/odaykhovskaya/tes
 How to run locally:
 
 * Make sure you have [Spark](https://spark.apache.org/downloads.html) installed and properly configured
-* Config environment variables:
+* Configure environment variables:
     ```
   PATH_TO_DATA_PURCHASES="<path to .xlsx file with purchases data>"
   PATH_TO_DATA_CLICKSTREAM="<path to .xlsx file with clickstream data>"
