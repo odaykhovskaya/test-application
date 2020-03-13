@@ -84,7 +84,9 @@ class Task2Spec extends FlatSpec with BeforeAndAfter with BeforeAndAfterAll {
     val resultChannel = solution.task2.DataFrameAPI.getTopChannels()
 
     resultChannel.write.format("com.crealytics.spark.excel")
-      .option("useHeader", "true").save(s"${Config.PATH_TO_RESULT}/task2_channels.xlsx")
+      .option("useHeader", "true")
+      .mode("overwrite")
+      .save(s"${Config.PATH_TO_RESULT}/task2_channels.xlsx")
 
   }
 

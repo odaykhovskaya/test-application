@@ -1,8 +1,5 @@
-sbt package
+sbt 'set test in assembly := {}' assembly
 
-export $RESULT_FOLDER_NAME="result"
-mkdir $RESULT_FOLDER_NAME
+spark-submit --class solution.task1.Main --packages 'com.crealytics:spark-excel_2.11:0.12.5' target/scala-2.11/test-application-assembly-0.1.jar
 
-export $PATH_TO_RESULT="./$RESULT_FOLDER_NAME"
-
-spark-submit --class solution.task1.DataFrameAPI --master local[*] target/scala-2.11/test-application_2.11-0.1.jar
+spark-submit --class solution.task2.Main --packages 'com.crealytics:spark-excel_2.11:0.12.5' target/scala-2.11/test-application-assembly-0.1.jar

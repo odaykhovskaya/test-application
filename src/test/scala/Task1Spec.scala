@@ -56,7 +56,9 @@ class Task1Spec extends FlatSpec with BeforeAndAfter with BeforeAndAfterAll {
     val result = solution.task1.DataFrameAPI.run()
 
     result.write.format("com.crealytics.spark.excel")
-      .option("useHeader", "true").save(s"${Config.PATH_TO_RESULT}/task1.xlsx")
+      .option("useHeader", "true")
+      .mode("overwrite")
+      .save(s"${Config.PATH_TO_RESULT}/task1.xlsx")
 
   }
 
