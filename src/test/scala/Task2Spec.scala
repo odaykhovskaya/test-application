@@ -1,6 +1,7 @@
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, lit}
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, FlatSpec}
+import solution.Config
 
 class Task2Spec extends FlatSpec with BeforeAndAfter with BeforeAndAfterAll {
 
@@ -71,6 +72,19 @@ class Task2Spec extends FlatSpec with BeforeAndAfter with BeforeAndAfterAll {
         .get(0)
         .getAs[String]("channelId")
     assertResult(expectedCmp1Channel)(actualCmp1Channel)
+
+  }
+
+  "Result file" should "be written" in {
+    val resultCampaign = solution.task2.DataFrameAPI.getTopCampaigns()
+
+    resultCampaign.write.format("com.crealytics.spark.excel")
+      .option("useHeader", "true").save(s"${Config.PATH_TO_RESULT}/task2_campaigns.xlsx")
+
+    val resultChannel = solution.task2.DataFrameAPI.getTopChannels()
+
+    resultChannel.write.format("com.crealytics.spark.excel")
+      .option("useHeader", "true").save(s"${Config.PATH_TO_RESULT}/task2_channels.xlsx")
 
   }
 

@@ -1,6 +1,7 @@
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.col
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, FlatSpec}
+import solution.Config
 
 class Task1Spec extends FlatSpec with BeforeAndAfter with BeforeAndAfterAll {
 
@@ -48,6 +49,14 @@ class Task1Spec extends FlatSpec with BeforeAndAfter with BeforeAndAfterAll {
         .collectAsList()
         .get(0).getAs[String]("purchaseId")
     assertResult(expectedBiggestPurchaseId)(actualBiggestPurchaseId)
+
+  }
+
+  "Result file" should "be written" in {
+    val result = solution.task1.DataFrameAPI.run()
+
+    result.write.format("com.crealytics.spark.excel")
+      .option("useHeader", "true").save(s"${Config.PATH_TO_RESULT}/task1.xlsx")
 
   }
 
