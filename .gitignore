@@ -1,0 +1,28 @@
+.DS_Store
+
+*.class
+*.log
+*.pyc
+
+# sbt specific
+.cache/
+.history/
+.lib/
+
+/dist/*
+/local/*
+/temp/*
+.ipynb_checkpoints/
+
+spark-warehouse/
+
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+#IDEA specific
+.idea/
+*.iws
+*.iml
