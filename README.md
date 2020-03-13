@@ -1,5 +1,6 @@
 # test-application
 
+This is marketing analytics task.
 Look for data description [here](https://github.com/odaykhovskaya/test-application/blob/master/src/main/resources/jupyter-notebooks/EDA.ipynb)
 
 How to run locally:
@@ -11,3 +12,6 @@ How to run locally:
   PATH_TO_DATA_CLICKSTREAM="<path to .xlsx file with clickstream data>"
     ```
 * In the root directory package run command
+    ```
+    sbt assembly
+    ```
