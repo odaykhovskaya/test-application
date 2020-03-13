@@ -8,6 +8,8 @@ Solution for both tasks can be found [here](https://github.com/odaykhovskaya/tes
 
 All solutions are tested [here](https://github.com/odaykhovskaya/test-application/tree/master/src/test/scala).
 
+Answers for sample data can be found [here](https://github.com/odaykhovskaya/test-application/blob/master/src/main/resources/jupyter-notebooks/Result.ipynb).
+
 How to run locally:
 
 * Make sure you have [Spark](https://spark.apache.org/downloads.html) installed and properly configured
